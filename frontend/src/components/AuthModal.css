@@ -1,0 +1,676 @@
+.marketlink-auth-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 16, 11, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+.marketlink-auth-card {
+  width: 100%;
+  max-width: 1060px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: 1.05fr 1.25fr;
+  overflow: hidden;
+  position: relative;
+  max-height: min(96vh, 890px);
+}
+
+/* Left Visual Panel - Looping Tractor Motion & Brand */
+.marketlink-auth-visual {
+  position: relative;
+  color: #ffffff;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background: #0d150f;
+  min-height: 100%;
+}
+
+.marketlink-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  filter: brightness(0.85) contrast(1.08);
+}
+
+.marketlink-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 16, 11, 0.5) 0%,
+    rgba(10, 16, 11, 0.05) 45%,
+    rgba(10, 16, 11, 0.35) 100%
+  );
+  z-index: 1;
+}
+
+.marketlink-visual-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.marketlink-auth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(40, 167, 69, 0.25);
+  border: 1px solid rgba(82, 196, 26, 0.5);
+  color: #a3f386;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  width: fit-content;
+  backdrop-filter: blur(6px);
+}
+
+.marketlink-live-dot {
+  width: 6px;
+  height: 6px;
+  background: #52c41a;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #52c41a;
+}
+
+.marketlink-auth-logo-title {
+  font-size: clamp(2.2rem, 3.2vw, 2.75rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 1.25rem 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.marketlink-auth-logo-title .text-market {
+  color: #52c41a;
+}
+
+.marketlink-auth-logo-title .text-link {
+  color: #fa8c16;
+}
+
+.marketlink-auth-tagline {
+  color: #dce8db;
+  font-size: 0.885rem;
+  line-height: 1.55;
+  margin: 0 0 1.5rem;
+  max-width: 340px;
+}
+
+.marketlink-auth-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.marketlink-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #e2ece0;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 7px 12px;
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.marketlink-feature-dot {
+  color: #52c41a;
+  font-weight: 700;
+}
+
+/* Right Form Panel */
+.marketlink-auth-form-panel {
+  padding: 1.15rem 1.6rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #ffffff;
+  scrollbar-width: thin;
+  scrollbar-color: #3cb815 #f1f5f0;
+}
+
+.marketlink-auth-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.marketlink-tabs-pill {
+  display: inline-flex;
+  background: #f1f5f0;
+  padding: 3px;
+  border-radius: 9px;
+  border: 1px solid #e1ebe0;
+}
+
+.marketlink-tab-button {
+  border: none;
+  background: transparent;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 7px;
+  color: #556b4f;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.marketlink-tab-button.active {
+  background: #ffffff;
+  color: #141e12;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.marketlink-close-btn {
+  background: #f1f5f0;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #556b4f;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.marketlink-close-btn:hover {
+  background: #e1ebe0;
+  color: #141e12;
+}
+
+.marketlink-alert-banner {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  margin-bottom: 0.45rem;
+}
+
+.marketlink-alert-banner.error {
+  background: #fff2f0;
+  border: 1px solid #ffccc7;
+  color: #cf1322;
+}
+
+.marketlink-alert-banner.success {
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  color: #389e0d;
+}
+
+/* Demo account pills */
+.marketlink-demo-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.marketlink-demo-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #d9e6d7;
+  background: #f8faf7;
+  color: #2e5927;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.marketlink-demo-pill:hover {
+  background: #eaf4e8;
+  border-color: #28a745;
+}
+
+/* Google OAuth Button */
+.marketlink-google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6.5px 12px;
+  background: #ffffff;
+  border: 1.5px solid #dce8db;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2b4226;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-bottom: 0.35rem;
+}
+
+.marketlink-google-btn:hover:not(:disabled) {
+  background: #fbfdfa;
+  border-color: #28a745;
+}
+
+.marketlink-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0.25rem 0 0.45rem;
+  color: #8da488;
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.marketlink-divider::before,
+.marketlink-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e5ede3;
+}
+
+.marketlink-divider span {
+  padding: 0 8px;
+}
+
+/* Role Selector */
+.marketlink-role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 0.45rem;
+}
+
+.marketlink-role-card {
+  padding: 5px 8px;
+  border: 1.5px solid #dce8db;
+  border-radius: 7px;
+  background: #fcfdfb;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #556b4f;
+  transition: all 0.15s ease;
+}
+
+.marketlink-role-card.selected {
+  border-color: #28a745;
+  background: #f4faf2;
+  color: #1b3d16;
+}
+
+/* Form groups & inputs */
+.marketlink-field-group {
+  margin-bottom: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.marketlink-field-label {
+  font-size: 0.71rem;
+  font-weight: 600;
+  color: #2b4226;
+}
+
+.marketlink-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.marketlink-input {
+  width: 100%;
+  padding: 6.5px 10px;
+  font-size: 0.825rem;
+  background: #fcfdfb;
+  border: 1.5px solid #dce8db;
+  border-radius: 7px;
+  color: #1b3d16;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.marketlink-input:focus {
+  background: #ffffff;
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.12);
+}
+
+.marketlink-eye-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #8da488;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 0.725rem;
+  font-weight: 600;
+}
+
+/* I'm not a robot reCAPTCHA Card */
+.marketlink-recaptcha-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9fafb;
+  border: 1.5px solid #d1d5db;
+  border-radius: 7px;
+  padding: 6px 10px;
+  margin-bottom: 0.45rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.15s ease;
+}
+
+.marketlink-recaptcha-card:hover {
+  border-color: #b0b8c1;
+}
+
+.marketlink-recaptcha-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.marketlink-recaptcha-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #c1c7cd;
+  border-radius: 4px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.15s ease;
+}
+
+.marketlink-recaptcha-checkbox:hover:not(:disabled) {
+  border-color: #4285F4;
+}
+
+.marketlink-recaptcha-checkbox.verified {
+  border-color: #28a745;
+  background: #f4faf2;
+  cursor: default;
+}
+
+.marketlink-recaptcha-checkbox.verifying {
+  border-color: #4285F4;
+  cursor: wait;
+}
+
+.recaptcha-spinner {
+  width: 13px;
+  height: 13px;
+  border: 2px solid #d2e3fc;
+  border-top-color: #4285F4;
+  border-radius: 50%;
+  animation: recaptchaSpin 0.6s linear infinite;
+}
+
+@keyframes recaptchaSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.marketlink-recaptcha-label {
+  font-size: 0.81rem;
+  font-weight: 500;
+  color: #1f2937;
+  user-select: none;
+}
+
+.marketlink-recaptcha-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.marketlink-recaptcha-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.recaptcha-title {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #4b5563;
+  letter-spacing: -0.01em;
+}
+
+.recaptcha-terms {
+  font-size: 0.5rem;
+  color: #9ca3af;
+  margin-top: 1px;
+}
+
+/* Submit CTA button */
+.marketlink-submit-btn {
+  width: 100%;
+  padding: 8.5px 14px;
+  background: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.835rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-top: 0.15rem;
+}
+
+.marketlink-submit-btn:hover:not(:disabled) {
+  background: #218838;
+}
+
+.marketlink-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.marketlink-forgot-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #28a745;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.marketlink-forgot-btn:hover {
+  color: #1e7e34;
+}
+
+.marketlink-back-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2b4226;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s ease;
+}
+
+.marketlink-back-btn:hover {
+  color: #28a745;
+}
+
+@media (max-width: 820px) {
+  .marketlink-auth-card {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    max-height: 96vh;
+  }
+
+  .marketlink-auth-visual {
+    min-height: 180px;
+    padding: 1.25rem;
+  }
+
+  .marketlink-auth-features {
+    display: none;
+  }
+
+  .marketlink-auth-form-panel {
+    padding: 1.25rem;
+  }
+}
+
+/* Google Account Chooser Styles */
+.google-chooser-container {
+  padding: 0.25rem 0;
+}
+
+.google-chooser-header {
+  text-align: center;
+  margin-bottom: 1.15rem;
+}
+
+.google-chooser-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.google-chooser-subtitle {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.google-account-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.google-account-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  background: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.google-account-item:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.google-account-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.google-account-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.google-account-name {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.google-account-email {
+  font-size: 0.74rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.google-terms-notice {
+  font-size: 0.69rem;
+  color: #9ca3af;
+  line-height: 1.45;
+  text-align: center;
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* RTL Language Enhancements */
+.marketlink-auth-card[dir="rtl"] {
+  text-align: right;
+}
+
+.marketlink-auth-card[dir="rtl"] .marketlink-eye-toggle {
+  right: auto;
+  left: 10px;
+}
+
+.marketlink-auth-card[dir="rtl"] .marketlink-back-btn svg {
+  transform: rotate(180deg);
+}
+
+.marketlink-auth-card[dir="rtl"] .marketlink-recaptcha-card {
+  direction: ltr; /* reCAPTCHA badges standard display */
+}
+

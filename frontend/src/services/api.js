@@ -16,6 +16,7 @@ async function request(endpoint, options = {}) {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
+    'Bypass-Tunnel-Reminder': 'true',
     ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
     ...(options.headers || {})
   };
